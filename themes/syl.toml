@@ -1,0 +1,206 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:bg_os)\
+$os\
+[](fg:bg_os bg:bg_dir)\
+$directory\
+$direnv\
+[](fg:bg_dir bg:bg_git)\
+$git_branch\
+$git_status\
+[](fg:bg_git bg:bg_code)\
+$terraform\
+${env_var.CLOUDSDK_ACTIVE_CONFIG_NAME}\
+$gcloud\
+$kubernetes\
+$nodejs\
+$java\
+$rust\
+$golang\
+$php\
+[](fg:bg_code bg:bg_time)\
+$time\
+$cmd_duration\
+[ ](fg:bg_time)\
+\n$character"""
+
+# command_timeout = 3000
+palette = "rose_pine"
+
+[palettes.tokyo_night]
+bg_os = '#a3aed2'
+fg_os = '#1d2230'
+bg_dir = '#606f9f'
+fg_dir = '#e3e5e5'
+bg_git = '#394260'
+fg_git = '#769ff0'
+bg_code = '#212736'
+fg_code = '#769ff0'
+bg_time = '#1d2230'
+fg_time = '#a0a9cb'
+fg_red = '#f7768e'
+fg_orange = '#ff9e64'
+fg_purple = '#bb9af7'
+fg_green = '#9ece6a'
+
+[palettes.rose_pine]
+bg_os = '#c4a7e7'
+fg_os = '#26233A'
+bg_dir = '#907aa9'
+fg_dir = '#e0def4'
+bg_git = '#393552'
+fg_git = '#c4a7e7'
+bg_code = '#2a273f'
+fg_code = '#c4a7e7'
+bg_time = '#26233A'
+fg_time = '#907aa9'
+fg_red = '#eb6f92'
+fg_orange = '#f6c177'
+fg_purple = '#ebbcba'
+fg_green = '#9ccfd8'
+
+[os]
+disabled = false
+format = "[ $symbol ]($style)"
+style = "bg:bg_os fg:fg_os"
+
+[os.symbols]
+Debian = ""
+Ubuntu = ""
+Windows = ""
+
+[directory]
+style = "fg:fg_dir bg:bg_dir"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[direnv]
+disabled = false
+style = "fg:fg_dir bg:bg_dir"
+format = "[$symbol$loaded]($style)"
+symbol = ""
+loaded_msg = "󰐊"
+unloaded_msg = "✘"
+
+####
+
+[git_branch]
+symbol = ""
+style = "fg:fg_git bg:bg_git"
+format = '[ $symbol $branch]($style)'
+
+[git_status]
+# windows_starship = '/mnt/c/msys64/mingw64/bin/starship.exe'
+# windows_starship = '/mnt/c/Program Files/starship/bin/starship.exe'
+style = "fg:fg_git bg:bg_git"
+conflicted = '[✘${count}](fg:fg_red bg:bg_git)'
+ahead = '[⇡${count}](fg:fg_green bg:bg_git)'
+behind = '[⇣${count}](fg:fg_orange bg:bg_git)'
+diverged = '[⇕⇡${ahead_count}⇣${behind_count}](fg:fg_red bg:bg_git)'
+up_to_date = ''
+untracked = '…'
+stashed = ''
+modified = '[󰦒${count}](fg:fg_purple bg:bg_git)'
+staged = '[●${count}](fg:fg_green bg:bg_git)'
+deleted = '[-${count}](fg:fg_red bg:bg_git)'
+format = '[( ${all_status}${ahead_behind}) ]($style)'
+
+####
+
+# show gcloud active config if the env is set by direnv
+[env_var.CLOUDSDK_ACTIVE_CONFIG_NAME]
+disabled = false
+symbol = "󱇶"
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($env_value) ]($style)'
+
+# show gcloud active config if ~/.config/gcloud/active_config contains a value,
+# if CLOUDSDK_ACTIVE_CONFIG_NAME is set at some point
+[gcloud]
+disabled = true
+symbol = "󱇶"
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($active) ]($style)'
+
+[golang]
+symbol = ""
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($version) ]($style)'
+
+[php]
+symbol = ""
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($version) ]($style)'
+
+[kubernetes]
+disabled = false
+symbol = "󱃾"
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol $context( \($namespace\)) ]($style)'
+# detect_files = ['helmfile*.yaml']
+detect_extensions = ['yaml']
+
+[[kubernetes.contexts]]
+context_pattern = "folio-prod.*"
+context_alias = "folio-prod"
+style = "fg:fg_red bg:bg_code"
+
+[[kubernetes.contexts]]
+context_pattern = "(folio-demo|incepto-dev).*"
+context_alias = "folio-demo"
+
+[[kubernetes.contexts]]
+context_pattern = "(folio-dev|dev-incepto).*"
+context_alias = "folio-dev"
+
+[[kubernetes.contexts]]
+context_pattern = ".*_gateway-cluster-gke"
+context_alias = "gateway-cluster-gke"
+
+[nodejs]
+symbol = ""
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($version) ]($style)'
+
+[terraform]
+symbol = "󱁢"
+version_format = "${raw}"
+style = "fg:fg_code bg:bg_code"
+format = '[ $symbol ($version$workspace) ]($style)'
+
+####
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "fg:fg_time bg:bg_time"
+format = '[  $time ]($style)'
+
+[cmd_duration]
+style = "fg:fg_time bg:bg_time"
+format = '[ $duration]($style)'
+
+####
+
+[character]
+disabled = false
+success_symbol = '[ 󱞪](fg:bg_os)'
+error_symbol = '[ 󱞪](fg:fg_red)'

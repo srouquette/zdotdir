@@ -1,4 +1,4 @@
-# zdotdir
+# zdotdir - fork from mattmc3
 
 My `$ZDOTDIR` [dotfiles] directory, which contains my zsh configuration.
 
@@ -42,7 +42,7 @@ Install this dotfiles repo to your `$ZDOTDIR`:
 export ZDOTDIR=~/.config/zsh
 
 # clone this repo
-git clone --recursive git@github.com:mattmc3/zdotdir.git $ZDOTDIR
+git clone --recursive git@github.com:srouquette/zdotdir.git $ZDOTDIR
 
 # change the root .zshenv file to use ZDOTDIR
 cat << 'EOF' >| ~/.zshenv
@@ -153,7 +153,7 @@ I use Space Gray:
 [nerd-fonts]:           https://github.com/ryanoasis/nerd-fonts
 [oh-my-zsh]:            https://github.com/ohmyzsh/ohmyzsh
 [prezto]:               https://github.com/sorin-ionescu/prezto
-[starship-toml]:        https://github.com/mattmc3/zdotdir/blob/main/prompt/starship.toml
+[starship-toml]:        https://github.com/srouquette/zdotdir/blob/main/themes/syl.toml
 [starship]:             https://starship.rs
 [supercharge-zsh]:      https://blog.callstack.io/supercharge-your-terminal-with-zsh-8b369d689770
 [zdotdir_gif]:          https://raw.githubusercontent.com/mattmc3/zdotdir/resources/img/zdotdir.gif
