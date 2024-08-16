@@ -11,7 +11,7 @@
 
 # single character shortcuts - be sparing!
 alias _=sudo
-alias l=ls
+# alias l=ls
 alias g=git
 
 # mask built-ins with better defaults

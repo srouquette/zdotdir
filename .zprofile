@@ -5,9 +5,9 @@ export PAGER="${PAGER:-less}"
 
 export KUBE_HOME=$HOME/.kube
 
-export LESSOPEN='|$ZDOTDIR/conf.d/.lessfilter %s'
+export LESSOPEN='| lesspipe.sh %s'
 # export LESS="-R"
-export LESS="${LESS:--g -i -M -R -S -w -z-4}"
+export LESS="${LESS:--F -g -i -M -R -S -w -X -z-4}"
 
 export ZSH_AUTOSUGGEST_STRATEGY=(
     completion

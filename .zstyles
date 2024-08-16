@@ -54,8 +54,8 @@ zstyle ':zephyr:plugin:editor:glob-alias' noexpand $noexpand
 
 # Set the default (magic) command when hitting enter on an empty prompt.
 zstyle ':zephyr:plugin:editor' magic-enter 'yes'
-# zstyle ':zephyr:plugin:editor:magic-enter' command 'ls -lh .'
-# zstyle ':zephyr:plugin:editor:magic-enter' git-command 'git status -u .'
+zstyle ':zephyr:plugin:editor:magic-enter' command 'la'
+zstyle ':zephyr:plugin:editor:magic-enter' git-command 'git status -sb .'
 
 # Editor style
 zstyle -s ':zephyr:plugin:editor' key-bindings 'emacs'
@@ -85,21 +85,35 @@ zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 # fzf-tab
 #
 
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'l $realpath'
+
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+
 # zstyle ':fzf-tab:*' prefix '♦ '
 # zstyle ':fzf-tab:complete:*' fzf-preview 'less ${(Q)realpath}'
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-# export LESSOPEN='|$ZDOTDIR/conf.d/.lessfilter %s'
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+# export LESSOPEN='|$ZDOTDIR/conf.d/.lesspipe %s'
 # zstyle ':fzf-tab:complete:_zlua:*' query-string input
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'echo "DEBUG: ${(Q)realpath}"'
 
-zstyle ':completion:*:git-checkout:*' sort false
-zstyle ':fzf-tab:*' print-query alt-enter
-zstyle ':fzf-tab:*' single-group color header
+# zstyle ':fzf-tab:*' print-query alt-enter
+# zstyle ':fzf-tab:*' single-group color header
+
 # zstyle ':completion:*:descriptions' format '[%d]'
 
 #
 # Misc
 #
-zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
+# zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 # bindkey '\t' fzf-tab-complete "$terminfo[kcbt]" fzf-tab-complete
 # bindkey -M menuselect '\t' fzf-tab-complete "$terminfo[kcbt]" fzf-tab-complete
