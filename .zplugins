@@ -41,7 +41,7 @@ ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/terraform
 
 ## * ------------------------------ UTILITIES ----------------------------- * ##
-# asdf ajeetdsouza/zoxide kind:defer
+# ajeetdsouza/zoxide kind:defer
 hlissner/zsh-autopair
 mattmc3/zman
 fdellwing/zsh-bat

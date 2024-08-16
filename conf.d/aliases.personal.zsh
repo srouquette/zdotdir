@@ -19,13 +19,10 @@ alias gpgls='gpg -K --keyid-format SHORT'
 alias gpge='gpg --edit-key'
 
 # ls
-if command -v lsd &>/dev/null; then
-  alias ls='lsd --header -l --group-directories-first --blocks="size,name"'
-  alias l='lsd --header -l --group-directories-first'
-elif command -v eza &>/dev/null; then
-  alias ls='eza --git -hl --icons --group-directories-first --no-permissions --octal-permissions --color=always --no-filesize --no-user --no-time'
-  alias l='eza --git -hl --icons --group-directories-first --octal-permissions' #
-fi
+alias ls='eza --git -hl --icons --group-directories-first --no-permissions --octal-permissions --color=always --no-filesize --no-user --no-time'
+alias l='eza --git -hl --icons --group-directories-first --octal-permissions' #
+# alias ls='lsd --header -l --group-directories-first --blocks="size,name"'
+# alias l='lsd --header -l --group-directories-first'
 alias lsa='ls -a'
 alias la='l -a'
 alias ldot='lsa -d .*'
