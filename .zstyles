@@ -43,6 +43,7 @@ zstyle ':zephyr:plugin:editor' symmetric-ctrl-z 'yes'
 # Expand aliases to their actual command like Fish abbreviations.
 zstyle ':zephyr:plugin:editor' glob-alias 'yes'
 noexpand=(
+  l
   ls
   grep
   gpg
@@ -95,15 +96,13 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # preview directory's content with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'l $realpath'
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'l $realpath'
 
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 
 # zstyle ':fzf-tab:*' prefix '♦ '
 # zstyle ':fzf-tab:complete:*' fzf-preview 'less ${(Q)realpath}'
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-# export LESSOPEN='|$ZDOTDIR/conf.d/.lesspipe %s'
-# zstyle ':fzf-tab:complete:_zlua:*' query-string input
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'echo "DEBUG: ${(Q)realpath}"'
 
 # zstyle ':fzf-tab:*' print-query alt-enter
@@ -117,3 +116,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'l $realpath'
 # zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 # bindkey '\t' fzf-tab-complete "$terminfo[kcbt]" fzf-tab-complete
 # bindkey -M menuselect '\t' fzf-tab-complete "$terminfo[kcbt]" fzf-tab-complete
+
+# alias-finder
+
+zstyle ':omz:plugins:alias-finder' autoload yes
+zstyle ':omz:plugins:alias-finder' longer yes
+zstyle ':omz:plugins:alias-finder' exact yes
+zstyle ':omz:plugins:alias-finder' cheaper yes
