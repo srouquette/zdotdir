@@ -40,19 +40,20 @@ ohmyzsh/ohmyzsh path:plugins/sudo
 ## * ------------------------------ UTILITIES ----------------------------- * ##
 hlissner/zsh-autopair
 fdellwing/zsh-bat
-# unixorn/fzf-zsh-plugin
-aloxaf/fzf-tab
-freed-wu/fzf-tab-source
+# doesn't work yet on msys2
+# aloxaf/fzf-tab
+# freed-wu/fzf-tab-source
 wfxr/forgit kind:defer
 ajeetdsouza/zoxide kind:defer
 romkatv/zsh-bench kind:path
 romkatv/zsh-no-ps2
+junegunn/fzf-git.sh
 
 ## * ------------------------------ FISH-LIKE ----------------------------- * ##
 mattmc3/zephyr path:plugins/zfunctions
 mattmc3/zephyr path:plugins/confd
-#zdharma-continuum/fast-syntax-highlighting
-zsh-users/zsh-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting
+# zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions post:post-autosuggestions
 zsh-users/zsh-history-substring-search post:post-history-substring-search
 
