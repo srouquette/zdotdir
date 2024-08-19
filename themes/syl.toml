@@ -25,7 +25,8 @@ $cmd_duration\
 [ ](bg_time)\
 \n$character"""
 
-right_format = """$status"""
+right_format = """
+([$status](red))"""
 
 # command_timeout = 3000
 palette = "rose_pine"
@@ -33,6 +34,7 @@ palette = "rose_pine"
 [palettes.tokyo_night]
 bg_os = '#a3aed2'
 fg_os = '#1d2230'
+fg_error = '#30221d'
 bg_dir = '#606f9f'
 fg_dir = '#e3e5e5'
 bg_git = '#394260'
@@ -218,9 +220,12 @@ disabled = false
 success_symbol = '[ 󱞪](bg_os)'
 error_symbol = '[ 󱞪](red)'
 
+#### right
+
 [status]
 disabled = false
 pipestatus = true
+style = "fg_os bg:red"
 format = '[$symbol$int]($style)'
 symbol = '✘'
 pipestatus_format = '\[$pipestatus\]($style)'

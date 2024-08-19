@@ -4,9 +4,8 @@ export PAGER="${PAGER:-less}"
 
 export KUBE_HOME=$HOME/.kube
 
+export LESS="${LESS:--FgiMRSX -z 4 --wheel-lines 4 --mouse}"
 export LESSOPEN='| lesspipe.sh %s'
-# export LESS="-R"
-export LESS="${LESS:--F -g -i -M -R -S -w -X -z-4}"
 
 export ZSH_AUTOSUGGEST_STRATEGY=(
     completion
