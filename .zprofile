@@ -7,7 +7,8 @@ export PAGER="${PAGER:-less}"
 export KUBE_HOME=$HOME/.kube
 
 export LESS="${LESS:--FgiMRSX -z 6 --wheel-lines 6 --mouse}"
-export LESSOPEN='| lesspipe.sh %s'
+# already defined in mattmc3/zephyr/plugins/directory
+# export LESSOPEN='| lesspipe.sh %s'
 
 # zsh-users/zsh-autosuggestions
 # export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
