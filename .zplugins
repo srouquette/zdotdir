@@ -38,9 +38,9 @@ ohmyzsh/ohmyzsh path:plugins/ssh
 # aloxaf/fzf-tab
 # freed-wu/fzf-tab-source
 # doesn't work on msys2
+# romkatv/zsh-bench kind:path
 hlissner/zsh-autopair
 fdellwing/zsh-bat
-romkatv/zsh-bench kind:path
 wfxr/forgit kind:defer
 ajeetdsouza/zoxide kind:defer
 romkatv/zsh-no-ps2
