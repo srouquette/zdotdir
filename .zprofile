@@ -6,7 +6,7 @@ export PAGER="${PAGER:-less}"
 # export PATH=$(p=$(echo $PATH | tr ":" "\n" | rg -v ".*/(windows|program files|Program Files|oculus).*" | tr "\n" ":"); echo ${p%:})
 export KUBE_HOME=$HOME/.kube
 
-export LESS="${LESS:--FgiMRSX -z 4 --wheel-lines 4 --mouse}"
+export LESS="${LESS:--FgiMRSX -z 6 --wheel-lines 6 --mouse}"
 export LESSOPEN='| lesspipe.sh %s'
 
 # zsh-users/zsh-autosuggestions
@@ -28,10 +28,9 @@ export FZF_CTRL_T_OPTS="--preview='less {}' --height=100%"
 export FZF_ALT_C_OPTS="--preview 'eza --icons --color=always --tree --recurse --level 2 --group-directories-first {}'"
 
 # bat
-[ -z "$(bat --list-themes | grep rose-pine 2>&1)" ] && bat cache --build
+export BAT_CONFIG_DIR="${HOME}/.config/bat"
 export BAT_THEME='rose-pine'
-# can't really set the config dir under msys2, config will be under Windows AppData
-# export BAT_CONFIG_DIR='${HOME}/.config/bat'
+[ -z "$(bat --list-themes | grep ${BAT_THEME} 2>&1)" ] && bat cache --build
 
 # misc
 export DIRENV_LOG_FORMAT=""
