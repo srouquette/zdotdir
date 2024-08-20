@@ -2,15 +2,17 @@
 # __init__: This runs prior to any other conf.d contents.
 #
 
-# Apps
-export EDITOR=nvim
-export VISUAL=code
-export PAGER=less
+export EDITOR="${EDITOR:-nano}"
+export VISUAL="${VISUAL:-code}"
+export PAGER="${PAGER:-less}"
+
+# remove windows path to improve performance
+# export PATH=$(p=$(echo $PATH | tr ":" "\n" | rg -v ".*/(windows|program files|Program Files|oculus).*" | tr "\n" ":"); echo ${p%:})
+export KUBE_HOME=$HOME/.kube
 
 # Set the list of directories that cd searches.
 cdpath=(
   $XDG_PROJECTS_DIR(N/)
-  $XDG_PROJECTS_DIR/mattmc3(N/)
   $cdpath
 )
 
@@ -19,16 +21,9 @@ path=(
   # core
   $prepath
   $path
-
-  # emacs
-  $HOME/.emacs.d/bin(N)
-  $XDG_CONFIG_HOME/emacs/bin(N)
-
-  # keg only brew apps
-  $HOMEBREW_PREFIX/opt/curl/bin(N)
-  $HOMEBREW_PREFIX/opt/go/libexec/bin(N)
-  $HOMEBREW_PREFIX/share/npm/bin(N)
-  $HOMEBREW_PREFIX/opt/ruby/bin(N)
-  $HOMEBREW_PREFIX/lib/ruby/gems/*/bin(N)
-  $HOME/.gem/ruby/*/bin(N)
 )
+
+##--------- misc
+export DIRENV_LOG_FORMAT=""
+export FORGIT_GLO_FORMAT='%C(auto)%h%d %p %s %C(bold black)<%an> %cr%Creset'
+command -v vivid &>/dev/null && export LS_COLORS="$(vivid generate rose-pine)"

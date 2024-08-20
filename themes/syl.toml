@@ -30,7 +30,7 @@ right_format = """
 ([$status](red))"""
 
 command_timeout = 3000
-palette = "rose_pine"
+palette = "rose-pine"
 
 [palettes.tokyo_night]
 bg_os = '#a3aed2'
@@ -54,7 +54,7 @@ blue = '#7aa2f7'
 purple = '#bb9af7'
 white = '#e3e5e5'
 
-[palettes.rose_pine]
+[palettes.rose-pine]
 bg_os = '#c4a7e7'
 fg_os = '#26233A'
 bg_dir = '#907aa9'
