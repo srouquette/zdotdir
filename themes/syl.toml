@@ -225,8 +225,8 @@ format = '[ $duration]($style)'
 
 [character]
 disabled = false
-success_symbol = '[ 󱞪](bg_os)'
-error_symbol = '[ 󱞪](red)'
+success_symbol = '[  ╰🞂](bg_os)'
+error_symbol = '[  ╰🞂](red)'
 
 #### right
 

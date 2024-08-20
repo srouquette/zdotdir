@@ -2,19 +2,19 @@
 # Configure fzf
 #
 
-alias frg='fzf-rg'
-
 # fd is better than rg to search file
 # export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --color=always --layout=default
-  -E .git -E node_modules -E target'
 
-export FZF_DEFAULT_OPTS='--ansi --reverse --height=50% --select-1 --exit-0
-  --walker-skip .git,node_modules,target
-  --bind "shift-up:preview-half-page-up"
-  --bind "shift-down:preview-half-page-down"
-  --bind "preview-scroll-up:preview-up+preview-up+preview-up+preview-up"
-  --bind "preview-scroll-down:preview-down+preview-down+preview-down+preview-down"'
+# -E .git -E node_modules...
+local fd_exclude="${FIND_EXCLUDE_LIST[@]/#/-E }"
+export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --color=always --layout=default $fd_exclude"
+
+export FZF_DEFAULT_OPTS="--ansi --reverse --height=50%
+  --walker-skip $GREP_EXCLUDE
+  --bind 'shift-up:preview-half-page-up'
+  --bind 'shift-down:preview-half-page-down'
+  --bind 'preview-scroll-up:preview-up+preview-up+preview-up+preview-up'
+  --bind 'preview-scroll-down:preview-down+preview-down+preview-down+preview-down'"
 
 # use .lessfilter instead of less to avoid paging, which cut the content randomly
 export FZF_CTRL_T_OPTS="--preview='~/.lessfilter {}'"

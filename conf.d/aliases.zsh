@@ -8,7 +8,7 @@ alias sshlist='ssh-add -l'
 
 alias ppath='echo ${PATH//:/\\n}'
 alias fppath='echo ${FPATH//:/\\n}'
-alias ag='alias | rg'
+alias ag='alias | grep'
 
 # zsh
 alias zreload='exec zsh -l'

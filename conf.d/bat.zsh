@@ -9,7 +9,8 @@ function update_theme {
   local dest=${BAT_CONFIG_DIR}/themes
   [ -d $dest ] || mkdir -p $dest
 
-  curl -fsSL https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine.tmTheme \
+  # https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine.tmTheme
+  curl -fsSL https://raw.githubusercontent.com/srouquette/dotfiles/main/dot_config/bat/themes/rose-pine.tmTheme \
     -o ${dest}/rose-pine.tmTheme
 }
 

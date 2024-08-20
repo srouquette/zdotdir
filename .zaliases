@@ -16,9 +16,7 @@ alias g=git
 
 # mask built-ins with better defaults
 alias ping='ping -c 5'
-alias vi=vim
-alias nv=nvim
-alias grep="${aliases[grep]:-grep} --exclude-dir={.git,.vscode}"
+[ -z $aliases[grep] ] && alias grep="grep --exclude-dir={$GREP_EXCLUDE}"
 
 # directories
 alias secrets="cd ${XDG_DATA_HOME:-~/.local/share}/secrets"
@@ -26,18 +24,13 @@ alias secrets="cd ${XDG_DATA_HOME:-~/.local/share}/secrets"
 # more ways to ls
 alias ll='ls -lh'
 alias la='ls -lAh'
-alias lsa="ls -aG"
+alias lsa='ls -aG'
 alias ldot='ls -ld .*'
 
 # fix typos
 alias get=git
 alias quit='exit'
 alias cd..='cd ..'
-alias zz='exit'
-
-# tar
-alias tarls="tar -tvf"
-alias untar="tar -xf"
 
 # date/time
 alias timestamp="date '+%Y-%m-%d %H:%M:%S'"
@@ -45,14 +38,6 @@ alias datestamp="date '+%Y-%m-%d'"
 alias isodate="date +%Y-%m-%dT%H:%M:%S%z"
 alias utc="date -u +%Y-%m-%dT%H:%M:%SZ"
 alias unixepoch="date +%s"
-
-# find
-# alias fd='find . -type d -name'
-# alias ff='find . -type f -name'
-
-# homebrew
-#alias brewup="brew update && brew upgrade && brew cleanup"
-#alias brewinfo="brew leaves | xargs brew desc --eval-all"
 
 # disk usage
 alias biggest='du -s ./* | sort -nr | awk '\''{print $2}'\'' | xargs du -sh'
@@ -76,21 +61,6 @@ alias cls="clear && printf '\e[3J'"
 alias print-fpath='for fp in $fpath; do echo $fp; done; unset fp'
 alias print-path='echo $PATH | tr ":" "\n"'
 alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
-
-# auto-orient images based on exif tags
-alias autorotate="jhead -autorot"
-
-# dotfiles
-: ${DOTFILES:=$HOME/.dotfiles}
-alias dotf='cd "$DOTFILES"'
-alias dotfed='cd "$DOTFILES" && ${VISUAL:-${EDITOR:-vim}} .'
-alias dotfl="cd \$DOTFILES/local"
-alias fdot='cd ${XDG_CONFIG_HOME:-~/.config}/fish'
-alias fconf=fdot
-alias zdot='cd $ZDOTDIR'
-
-# java
-alias setjavahome="export JAVA_HOME=\`/usr/libexec/java_home\`"
 
 # todo-txt
 alias t="todo.sh"

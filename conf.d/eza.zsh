@@ -4,10 +4,10 @@
 
 [ $(command -v eza 2>&1) ] || exit 0
 
-alias ls='eza -lh --group-directories-first --git --icons --color-scale all --hyperlink --octal-permissions'
-alias lh='ls -d .*'
-alias lD='ls -D'
-alias lc='ls -1'
+alias ls='eza -h --group-directories-first --git --icons --color-scale all --hyperlink --octal-permissions'
+alias lh='ll -d .*'
+alias lD='ll -Da'
+alias lc='ll -1'
 
 alias la='ll -a'
 
