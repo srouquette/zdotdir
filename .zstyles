@@ -49,6 +49,7 @@ noexpand=(
   g
   grep
   gpg
+  rg
   vi
   z
   0 1 2 3 4 5 6 7 8 9
@@ -98,7 +99,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # preview directory's content with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --all --git --icons --group-directories-first --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --all --git --icons --only-dirs --color=always $realpath'
 # zstyle ':fzf-tab:complete:cd:*' extra-opts --preview='eza -1 --all --git --icons --group-directories-first --color=always $realpath'
 
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'

@@ -35,3 +35,4 @@ export FIND_EXCLUDE_LIST=(.git .svn .hg CVS node_modules target .vscode .idea)
 # cute but "slow"
 # export GREP_EXCLUDE=$(IFS=, ; echo "${FIND_EXCLUDE_LIST[*]}")
 export GREP_EXCLUDE='.git,.svn,.hg,CVS,node_modules,target,.vscode,.idea'
+command -v vivid &>/dev/null && export LS_COLORS=$(vivid generate ${ZSH_THEME:-rose-pine})
