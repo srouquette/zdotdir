@@ -2,6 +2,8 @@
 # Configure bat
 #
 
+command -v bat &>/dev/null || exit 0
+
 export BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
 export BAT_THEME='rose-pine'
 

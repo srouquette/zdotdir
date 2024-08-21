@@ -2,6 +2,8 @@
 # Configure fzf
 #
 
+command -v fzf &>/dev/null || exit 0
+
 # fd is better than rg to search file
 # export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
