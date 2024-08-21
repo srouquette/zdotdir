@@ -32,7 +32,7 @@ ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/ssh
 
 ## * --------------------------------- FZF -------------------------------- * ##
-ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/fzf kind:defer
 # doesn't work yet on msys2
 # aloxaf/fzf-tab
 # freed-wu/fzf-tab-source
@@ -46,16 +46,17 @@ wfxr/forgit kind:defer
 
 ## * ------------------------------ UTILITIES ----------------------------- * ##
 $ZSH_CUSTOM/plugins/lesspipe
+$ZSH_CUSTOM/plugins/vivid kind:defer
 victoria-riley-barnett/Communism
 fdellwing/zsh-bat
 arzzen/calc.plugin.zsh
 romkatv/zsh-no-ps2
-hlissner/zsh-autopair
 
 ## * ------------------------------ FISH-LIKE ----------------------------- * ##
 mattmc3/zephyr path:plugins/zfunctions
 mattmc3/zephyr path:plugins/confd
-zdharma-continuum/fast-syntax-highlighting
+hlissner/zsh-autopair kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
 # zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions post:post-autosuggestions
 zsh-users/zsh-history-substring-search post:post-history-substring-search

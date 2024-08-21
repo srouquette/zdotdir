@@ -30,3 +30,8 @@ export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
 if [[ "$OSTYPE" == darwin* ]]; then
   export SHELL_SESSIONS_DISABLE=1
 fi
+
+export FIND_EXCLUDE_LIST=(.git .svn .hg CVS node_modules target .vscode .idea)
+# cute but "slow"
+# export GREP_EXCLUDE=$(IFS=, ; echo "${FIND_EXCLUDE_LIST[*]}")
+export GREP_EXCLUDE='.git,.svn,.hg,CVS,node_modules,target,.vscode,.idea'

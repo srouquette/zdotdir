@@ -21,7 +21,6 @@ EOF
 
 # or symlink the files from $ZDOTDIR/home in your home
 ln -s $ZDOTDIR/home/.zshenv ~/.zshenv
-ln -s $ZDOTDIR/home/.lessfilter ~/.lessfilter
 
 # load zsh
 zsh

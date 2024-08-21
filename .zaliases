@@ -16,13 +16,15 @@ alias g=git
 
 # mask built-ins with better defaults
 alias ping='ping -c 5'
+alias grep="${aliases[grep]:-grep} --color=always --exclude-dir={$GREP_EXCLUDE}"
+
 if command -v rg &>/dev/null; then
-  alias grep="rg --color=always --smart-case --glob '!{$GREP_EXCLUDE}'"
+  alias rg="rg --color=always --smart-case --glob '!{$GREP_EXCLUDE}'"
+  alias ag='alias | rg'
   alias frg='fzf-rg'
 else
-  alias grep="${aliases[grep]:-grep} --color=always --exclude-dir={$GREP_EXCLUDE}"
+  alias ag='alias | grep'
 fi
-alias ag='alias | grep'
 
 # more ways to ls
 if command -v eza &>/dev/null; then
@@ -110,11 +112,9 @@ alias cls="clear && printf '\e[3J'"
 alias pacmanQR='pacman -Qqdt | pacman -Rsnu -'
 
 # print things
-alias print-fpath='for fp in $fpath; do echo $fp; done; unset fp'
-alias print-path='echo $PATH | tr ":" "\n"'
-alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
 alias ppath='echo ${PATH//:/\\n}'
 alias fppath='echo ${FPATH//:/\\n}'
+alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
 
 # todo-txt
 alias t="todo.sh"
