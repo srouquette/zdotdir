@@ -16,4 +16,4 @@ function update_theme {
 
 [ -f ${BAT_CONFIG_DIR}/themes/rose-pine.tmTheme ] || update_theme
 
-[ -z "$(bat --list-themes | grep ${BAT_THEME} 2>&1)" ] && bat cache --build
+[ -z "$(bat --list-themes | grep ${BAT_THEME})" ] && bat cache --build

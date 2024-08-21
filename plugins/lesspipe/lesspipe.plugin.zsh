@@ -10,6 +10,6 @@ function update_lesspipe {
     -o ${dest}/lesspipe.sh
 }
 
-[ $(command -v lesspipe.sh 2>&1) ] || update_lesspipe
+command -v lesspipe.sh &>/dev/null || update_lesspipe
 
 export LESSOPEN="${LESSOPEN:-| lesspipe.sh %s 2>-}"

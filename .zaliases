@@ -16,16 +16,44 @@ alias g=git
 
 # mask built-ins with better defaults
 alias ping='ping -c 5'
-[ -z $aliases[grep] ] && alias grep="grep --exclude-dir={$GREP_EXCLUDE}"
-
-# directories
-alias secrets="cd ${XDG_DATA_HOME:-~/.local/share}/secrets"
+if command -v rg &>/dev/null; then
+  alias grep="rg --color=always --smart-case --glob '!{$GREP_EXCLUDE}'"
+  alias frg='fzf-rg'
+else
+  alias grep="${aliases[grep]:-grep} --color=always --exclude-dir={$GREP_EXCLUDE}"
+fi
+alias ag='alias | grep'
 
 # more ways to ls
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias lsa='ls -aG'
-alias ldot='ls -ld .*'
+if command -v eza &>/dev/null; then
+  alias ls='eza -h --group-directories-first --color=always --color-scale all --git --icons --hyperlink --octal-permissions'
+
+  alias lS='la --sort=size'
+  alias lX='la --sort=extension'
+  alias lM='la --sort=modified'
+  alias lA='la --sort=accessed'
+  alias lC='la --sort=created'
+  alias llm='lM'
+
+  alias lt='ls --tree'
+  alias tree=lt
+else
+  alias ls='ls -h --group-directories-first --color=always'
+
+  alias lS='la --sort=size'
+  alias lX='la --sort=extension'
+  alias lM='la --sort=time'
+  alias lA='lM'
+  alias lC='lM'
+  alias llm='lM'
+fi
+alias ll='ls -l'
+alias la='ls -lA'
+alias lsa='ls -GA'
+alias lD='ll -DA'
+alias lc='ll -1'
+alias lh='ls -ld .*'
+alias ldot='lh'
 
 # fix typos
 alias get=git
@@ -51,16 +79,42 @@ alias urldecode='python3 -c "import sys, urllib.parse as ul; \
 alias urlencode='python3 -c "import sys, urllib.parse as ul; \
     print (ul.quote_plus(sys.argv[1]))"'
 
+# ssh
+alias sshrem='ssh-add -D'
+alias sshall='fd $HOME/.ssh -type f -regex ".*/id_[^.]*$" | xargs ssh-add'
+alias sshdir='cd $HOME/.ssh'
+alias sshconfig='code $HOME/.ssh/config'
+alias sshcreate='cd $HOME/.ssh && ssh-keygen -t ed25519 -C ${HOST%%.local}'
+alias sshlist='ssh-add -l'
+
+# zsh
+alias zreload='exec zsh -l'
+alias zrr='exec zsh -l'
+alias arr='. $ZDOTDIR/conf.d/aliases.zsh'
+alias zcompdir='zcompiledir'
+alias zcheat='code $ZDOTDIR/.docs/zsh-cheatsheet.md'
+alias zstring='code $ZDOTDIR/.docs/zsh-string.md'
+alias zdotc='open $HOME/.config/zsh/zsh.code-workspace'
+alias aliasedit='$EDITOR $ZDOTDIR/conf.d/aliases.zsh'
+alias plugedit='$EDITOR $ZDOTDIR/.zplugins'
+
+# directories
+alias secrets="cd ${XDG_DATA_HOME:-~/.local/share}/secrets"
+alias cdw='cd "${XDG_DATA_HOME}"'
+
 # misc
 alias please=sudo
 alias zshrc='${EDITOR:-vim} "${ZDOTDIR:-$HOME}"/.zshrc'
 alias zbench='for i in {1..10}; do /usr/bin/time zsh -lic exit; done'
 alias cls="clear && printf '\e[3J'"
+alias pacmanQR='pacman -Qqdt | pacman -Rsnu -'
 
 # print things
 alias print-fpath='for fp in $fpath; do echo $fp; done; unset fp'
 alias print-path='echo $PATH | tr ":" "\n"'
 alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
+alias ppath='echo ${PATH//:/\\n}'
+alias fppath='echo ${FPATH//:/\\n}'
 
 # todo-txt
 alias t="todo.sh"
