@@ -10,22 +10,27 @@ command -v fzf &>/dev/null || return 0
 # -E .git -E node_modules...
 local fd_exclude="${FIND_EXCLUDE_LIST[@]/#/-E }"
 export FD_COMMON_OPTS="--follow --hidden --color=always $fd_exclude"
-export EZA_PREVIEW='eza --tree --recurse --level 3 --only-dirs --icons --color=always {}'
+export EZA_TREE_COMMAND='eza --tree --recurse --level 3 --only-dirs --icons --color=always'
 
 export FZF_DEFAULT_COMMAND="fd --type file $FD_COMMON_OPTS"
-export FZF_DEFAULT_OPTS="--ansi --reverse --height=50% --inline-info
+export FZF_DEFAULT_OPTS="--ansi --reverse --height=50%
   --walker-skip $GREP_EXCLUDE
   --bind 'shift-up:preview-half-page-up'
   --bind 'shift-down:preview-half-page-down'
   --bind 'preview-scroll-up:preview-up+preview-up+preview-up+preview-up'
   --bind 'preview-scroll-down:preview-down+preview-down+preview-down+preview-down'"
 
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
 # use .lessfilter instead of less to avoid paging, which cut the content randomly
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_CTRL_T_OPTS="--preview='~/.lessfilter {}'"
+export FZF_CTRL_T_OPTS="--preview '~/.lessfilter {}'"
 
 export FZF_ALT_C_COMMAND="fd --type dir $FD_COMMON_OPTS"
-export FZF_ALT_C_OPTS="--preview='$EZA_PREVIEW'"
+export FZF_ALT_C_OPTS="--preview '$EZA_TREE_COMMAND {}'"
 
 # https://github.com/junegunn/fzf?tab=readme-ov-file#environment-variables
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
@@ -48,10 +53,10 @@ _fzf_comprun() {
   shift
 
   case "$command" in
-    cd)           fzf --preview "$EZA_PREVIEW {}"   "$@" ;;
-    export|unset) fzf --preview "eval 'echo \$'{}"  "$@" ;;
-    ssh)          fzf --preview 'dig {}'            "$@" ;;
-    *)            fzf --preview '~/.lessfilter {}'  "$@" ;;
+    cd)           fzf --preview "$EZA_TREE_COMMAND {}"  "$@"  ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"      "$@"  ;;
+    ssh)          fzf --preview 'dig {}'                "$@"  ;;
+    *)            fzf --preview '~/.lessfilter {}'      "$@"  ;;
   esac
 }
 

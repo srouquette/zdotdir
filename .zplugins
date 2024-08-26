@@ -14,7 +14,7 @@ $ZSH_CUSTOM/plugins/zoxide
 $ZSH_CUSTOM/plugins/git
 
 ## * ------------------------------- ZEPHYR ------------------------------- * ##
-mattmc3/zephyr path:plugins/color             # keep ?
+# mattmc3/zephyr path:plugins/color             # keep ?
 mattmc3/zephyr path:plugins/directory
 mattmc3/zephyr path:plugins/editor            # magic-enter, fancy-ctrl-z, sudo
 mattmc3/zephyr path:plugins/history
@@ -33,9 +33,8 @@ ohmyzsh/ohmyzsh path:plugins/ssh
 
 ## * --------------------------------- FZF -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/fzf kind:defer
-# doesn't work yet on msys2
-# aloxaf/fzf-tab
-# freed-wu/fzf-tab-source
+aloxaf/fzf-tab
+freed-wu/fzf-tab-source
 
 ## * --------------------------------- GIT -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/git
