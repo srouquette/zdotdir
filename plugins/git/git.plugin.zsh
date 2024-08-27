@@ -6,18 +6,21 @@
 # - https://www.oliverspryn.com/blog/adding-git-completion-to-zsh
 
 function update_git_completions {
+  if [ ! -d ${ZSH_COMPLETIONS_DIR} ]; then
+    echo '$ZSH_COMPLETIONS_DIR is undefined or does not exists.'
+    return 0
+  fi
   # Download the git scripts
-  local giturl=https://raw.githubusercontent.com/git/git/master/contrib/completion
-  local dest=${1:-${XDG_DATA_HOME:-~/.local/share}/zsh/completions}
-  [[ -d $dest ]] || mkdir -p $dest
-  curl -fsSL $giturl/git-completion.bash -o $dest/git-completion.bash
-  curl -fsSL $giturl/git-completion.zsh -o $dest/_git
+  local bsh_url=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+  local zsh_url=https://raw.githubusercontent.com/felipec/git-completion/master/git-completion.zsh
+  local dest=${1:-$ZSH_COMPLETIONS_DIR}
+  curl -fsSL $bsh_url -o $dest/git-completion.bash
+  curl -fsSL $zsh_url -o $dest/_git
 }
 
 # Add completions
-fpath=(${XDG_DATA_HOME:-~/.local/share}/zsh/completions $fpath)
-[[ -f ${fpath[1]}/_git ]] || update_git_completions
-zstyle ':completion:*:*:git:*' script ${fpath[1]}/git-completion.bash
+[[ -f ${ZSH_COMPLETIONS_DIR}/_git ]] || update_git_completions
+zstyle ':completion:*:*:git:*' script ${ZSH_COMPLETIONS_DIR}/git-completion.bash
 
 # Aliases
 alias gad="git add"

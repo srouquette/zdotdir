@@ -5,4 +5,6 @@
 
 if (( $+commands[zoxide] )); then
   cached-eval 'zoxide-init-zsh' zoxide init zsh
+else
+  eval "$(zoxide init zsh)"
 fi
