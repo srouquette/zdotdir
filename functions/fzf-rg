@@ -16,5 +16,5 @@ fzf --ansi --disabled --query "$INITIAL_QUERY" \
     --delimiter : \
     --header 'CTRL-T: Switch between ripgrep/fzf' \
     --preview 'bat --color=always {1} --highlight-line {2}' \
-    --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-    --bind 'enter:become(vim {1} +{2})'
+    --preview-window 'right,50%,border-left,+{2}+3/2,~3' \
+    --bind "enter:become($EDITOR {1} +{2})"

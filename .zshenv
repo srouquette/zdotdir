@@ -31,7 +31,7 @@ export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
 export ZSH_CACHE_DIR=$__zsh_cache_dir
 
 # Also done by OMZ, add completions dir to $fpath
-export ZSH_COMPLETIONS_DIR=$ZSH_CACHE_DIR/completions
+export ZSH_COMPLETIONS_DIR=$__zsh_comp_dir
 (( ${fpath[(Ie)$ZSH_COMPLETIONS_DIR]} )) || fpath=("$ZSH_COMPLETIONS_DIR" $fpath)
 
 # Make Terminal.app behave.

@@ -23,17 +23,6 @@ path=(
   $path
 )
 
-##--------- zsh-autosuggestions
-# export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=black,bold'
-export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-export ZSH_AUTOSUGGEST_STRATEGY=(
-    match_prev_cmd
-    history
-    completion
-)
-
 ##--------- misc
 export DIRENV_LOG_FORMAT=""
 export FORGIT_GLO_FORMAT='%C(auto)%h%d %p %s %C(bold black)<%an> %cr%Creset'
