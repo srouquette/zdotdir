@@ -33,8 +33,9 @@ ohmyzsh/ohmyzsh path:plugins/ssh
 
 ## * --------------------------------- FZF -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/fzf kind:defer
-aloxaf/fzf-tab
-freed-wu/fzf-tab-source
+# too slow on msys2
+# aloxaf/fzf-tab
+# freed-wu/fzf-tab-source
 
 ## * --------------------------------- GIT -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/git
@@ -54,8 +55,8 @@ romkatv/zsh-no-ps2
 mattmc3/zephyr path:plugins/zfunctions
 mattmc3/zephyr path:plugins/confd
 hlissner/zsh-autopair kind:defer
-zdharma-continuum/fast-syntax-highlighting kind:defer
-# zsh-users/zsh-syntax-highlighting
+# zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-syntax-highlighting kind:defer
 zsh-users/zsh-autosuggestions post:post-autosuggestions
 zsh-users/zsh-history-substring-search post:post-history-substring-search
 
