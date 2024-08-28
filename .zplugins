@@ -3,8 +3,9 @@
 #
 
 ## * -------------------------------- INIT -------------------------------- * ##
-$ZSH_CUSTOM/plugins/starship-ftl
 mattmc3/zephyr path:plugins/environment
+ohmyzsh/ohmyzsh path:plugins/asdf
+$ZSH_CUSTOM/plugins/starship-ftl
 $ZSH_CUSTOM/plugins/xdg
 
 ## * ----------------------------- COMPLETIONS ---------------------------- * ##
@@ -24,7 +25,6 @@ mattmc3/zephyr path:plugins/prompt
 
 ## * --------------------------------- OMZ -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/alias-finder
-ohmyzsh/ohmyzsh path:plugins/asdf
 ohmyzsh/ohmyzsh path:plugins/common-aliases   # keep ?
 ohmyzsh/ohmyzsh path:plugins/direnv
 ohmyzsh/ohmyzsh path:plugins/docker-compose   # keep ?

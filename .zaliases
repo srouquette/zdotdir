@@ -18,7 +18,7 @@ alias g=git
 alias ping='ping -c 5'
 alias grep="${aliases[grep]:-grep} --color=always --exclude-dir={$GREP_EXCLUDE}"
 
-if command -v rg &>/dev/null; then
+if (( $+commands[rg] )); then
   alias rg="rg --color=always --smart-case --glob '!{$GREP_EXCLUDE}'"
   alias ag='alias | rg'
   alias frg='fzf-rg'
@@ -27,7 +27,7 @@ else
 fi
 
 # more ways to ls
-if command -v eza &>/dev/null; then
+if (( $+commands[eza] )); then
   alias ls='eza -h --group-directories-first --color=always --color-scale all --git --icons --hyperlink --octal-permissions'
 
   alias lS='la --sort=size'

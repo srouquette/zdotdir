@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+# install globally the latest version of a package through asdf.
+
+(( $+commands[asdf] )) || return 1
+
+asdf plugin add $1
+asdf install $1 latest
+asdf global $1 latest

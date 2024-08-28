@@ -2,7 +2,7 @@
 # Configure bat
 #
 
-command -v bat &>/dev/null || return 0
+(( $+commands[bat] )) || return 1
 
 export BAT_CONFIG_DIR="${XDG_CONFIG_HOME}/bat"
 export BAT_THEME='rose-pine'

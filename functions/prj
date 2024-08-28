@@ -1,9 +1,7 @@
 #!/bin/zsh
 ##? prj - project jumper
-if ! command -v fzf >/dev/null; then
-  echo "fzf command not found" >&2
-  return 1
-fi
+
+(( $+commands[fzf] )) || return 1
 
 local query=()
 local project_dir=${XDG_PROJECTS_DIR:-$HOME/Projects}
