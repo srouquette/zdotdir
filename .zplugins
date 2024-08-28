@@ -15,6 +15,7 @@ $ZSH_CUSTOM/plugins/git
 
 ## * ------------------------------- ZEPHYR ------------------------------- * ##
 # mattmc3/zephyr path:plugins/color             # keep ?
+mattmc3/zephyr path:plugins/compstyle
 mattmc3/zephyr path:plugins/directory
 mattmc3/zephyr path:plugins/editor            # magic-enter, fancy-ctrl-z, sudo
 mattmc3/zephyr path:plugins/history

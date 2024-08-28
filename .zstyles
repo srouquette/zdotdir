@@ -85,47 +85,6 @@ zstyle ':zephyr:plugin:prompt' theme starship syl
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
-#
-# fzf-tab
-#
-
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-# NOTE: don't use escape sequences here, fzf-tab will ignore them
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
-zstyle ':completion:*' menu no
-# preview directory's content with eza when completing cd
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --all --git --icons --only-dirs --color=always $realpath'
-# zstyle ':fzf-tab:complete:cd:*' extra-opts --preview='eza -1 --all --git --icons --group-directories-first --color=always $realpath'
-
-# # disable preview for command options
-# zstyle ':fzf-tab:complete:*:options' fzf-preview ''
-# # disable preview for subcommands
-# zstyle ':fzf-tab:complete:*:argument-1' fzf-preview ''
-
-# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-
-# zstyle ':fzf-tab:*' prefix '♦ '
-# zstyle ':fzf-tab:complete:*' fzf-preview 'less ${(Q)realpath}'
-# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-# zstyle ':fzf-tab:complete:*:*' fzf-preview 'echo "DEBUG: ${(Q)realpath}"'
-
-# zstyle ':fzf-tab:*' print-query alt-enter
-# zstyle ':fzf-tab:*' single-group color header
-
-# zstyle ':completion:*:descriptions' format '[%d]'
-
-#
-# Misc
-#
-# zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
-# bindkey '\t' fzf-tab-complete "$terminfo[kcbt]" fzf-tab-complete
-# bindkey -M menuselect '\t' fzf-tab-complete "$terminfo[kcbt]" fzf-tab-complete
-
 # alias-finder
 
 zstyle ':omz:plugins:alias-finder' autoload yes
