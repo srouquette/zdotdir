@@ -41,6 +41,7 @@ ohmyzsh/ohmyzsh path:plugins/fzf kind:defer
 ## * --------------------------------- GIT -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gh
+ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
 diazod/git-prune
 wfxr/forgit kind:defer
 # laggardkernel/git-ignore

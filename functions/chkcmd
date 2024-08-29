@@ -35,6 +35,7 @@ local cmds=(
   'helm'
   'helmfile'
   'jq'
+  'kops'
   'kubectl'
   'kubectx'
   'meld'

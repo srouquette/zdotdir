@@ -173,8 +173,7 @@ disabled = false
 symbol = "󱃾"
 style = "fg_code bg:bg_code"
 format = '[ $symbol $context( \($namespace\)) ]($style)'
-# detect_files = ['helmfile*.yaml']
-detect_extensions = ['yaml']
+detect_env_vars = ['KUBECONFIG']
 
 [[kubernetes.contexts]]
 context_pattern = "folio-prod.*"
@@ -207,7 +206,7 @@ format = '[ $symbol ($version) ]($style)'
 symbol = "󱁢"
 version_format = "${raw}"
 style = "fg_code bg:bg_code"
-format = '[ $symbol ($version$workspace) ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 ####
 
