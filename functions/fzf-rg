@@ -3,11 +3,11 @@
 # https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-between-ripgrep-mode-and-fzf-mode-using-a-single-key-binding
 # Switch between Ripgrep mode and fzf filtering mode (CTRL-T)
 rm -f /tmp/rg-fzf-{r,f}
-RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case --glob '!{$GREP_EXCLUDE}' "
-INITIAL_QUERY="${*:-}"
-fzf --ansi --disabled --query "$INITIAL_QUERY" \
-    --bind "start:reload:$RG_PREFIX {q}" \
-    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+local rg_prefix="rg --column --line-number --no-heading --color=always --smart-case --glob '!{$GREP_EXCLUDE}' "
+local initial_query="${*:-}"
+fzf --ansi --disabled --query "$initial_query" \
+    --bind "start:reload:$rg_prefix {q}" \
+    --bind "change:reload:sleep 0.1; $rg_prefix {q} || true" \
     --bind 'ctrl-t:transform:[[ ! $FZF_PROMPT =~ ripgrep ]] &&
       echo "rebind(change)+change-prompt(1. ripgrep> )+disable-search+transform-query:echo \{q} > /tmp/rg-fzf-f; cat /tmp/rg-fzf-r" ||
       echo "unbind(change)+change-prompt(2. fzf> )+enable-search+transform-query:echo \{q} > /tmp/rg-fzf-r; cat /tmp/rg-fzf-f"' \

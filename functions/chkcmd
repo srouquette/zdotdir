@@ -1,0 +1,55 @@
+#!/bin/zsh
+# check if all commands are installed
+
+local black='\e[30m'
+local red='\e[31m'
+local green='\e[32m'
+local blue='\e[34m'
+local purple='\e[35m'
+local cyan='\e[36m'
+local gray='\e[37m'
+local white='\e[00m'
+
+if [ ! -z "$1" ]; then
+  echo 'package managers:'
+  echo " - distrib:   ${blue}✓${gray}"
+  echo " - asdf:      ${cyan}✓${gray}"
+  echo " - scoop:     ${purple}✓${gray}"
+  echo " - not found: ${red}✘${gray}"
+fi
+
+local cmds=(
+  '7zip'
+  'bat'
+  'bc'
+  'delta'
+  'direnv'
+  'eza'
+  'fd'
+  'fzf'
+  'git'
+  'go'
+  'jq'
+  'kubectl'
+  'kubectx'
+  'helm'
+  'helmfile'
+  'terraform'
+  'python'
+  'rg'
+  'rustc'
+  'starship'
+  'vivid'
+  'yazi'
+  'zoxide'
+)
+
+for cmd in "${cmds[@]}"; do
+  local result=$(type -a $cmd | grep -oE 'bin|asdf|scoop')
+  case $result in
+    *bin*) echo "${blue}✓${gray} $cmd";;
+    *asdf*) echo "${cyan}✓${gray} $cmd";;
+    *scoop*) echo "${purple}✓${gray} $cmd";;
+    *) echo "${red}✘${gray} $cmd";;
+  esac
+done
