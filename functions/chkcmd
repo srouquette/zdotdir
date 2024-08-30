@@ -39,6 +39,7 @@ local cmds=(
   'kubectl'
   'kubectx'
   'meld'
+  'node'
   'python'
   'rg'
   'rustc'

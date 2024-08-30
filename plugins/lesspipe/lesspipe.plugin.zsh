@@ -8,6 +8,7 @@ function update_lesspipe {
 
   curl -fsSL https://raw.githubusercontent.com/wofr06/lesspipe/lesspipe/lesspipe.sh \
     -o ${dest}/lesspipe.sh
+  chmod +x ${dest}/lesspipe.sh
 }
 
 (( $+commands[lesspipe.sh] )) || update_lesspipe

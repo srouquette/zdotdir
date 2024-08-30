@@ -81,6 +81,7 @@ format = "[ $symbol ]($style)"
 style = "bg:bg_os fg_os"
 
 [os.symbols]
+Arch = "󰣇"
 Debian = ""
 Ubuntu = ""
 Windows = ""

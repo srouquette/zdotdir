@@ -4,12 +4,12 @@
 
 ## * -------------------------------- INIT -------------------------------- * ##
 mattmc3/zephyr path:plugins/environment
-ohmyzsh/ohmyzsh path:plugins/asdf
 $ZSH_CUSTOM/plugins/starship-ftl
 $ZSH_CUSTOM/plugins/xdg
 
 ## * ----------------------------- COMPLETIONS ---------------------------- * ##
 mattmc3/ez-compinit
+ohmyzsh/ohmyzsh path:plugins/asdf
 zsh-users/zsh-completions kind:fpath path:src
 $ZSH_CUSTOM/plugins/zoxide
 $ZSH_CUSTOM/plugins/git
