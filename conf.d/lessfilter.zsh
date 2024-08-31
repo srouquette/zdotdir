@@ -9,5 +9,3 @@ function update_lessfilter {
 }
 
 [ -f ${HOME}/.lessfilter ] || update_lessfilter
-
-export LESS="${LESS:--FgiMRSX -z 6 --wheel-lines 6 --mouse}"
