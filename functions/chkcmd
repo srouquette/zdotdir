@@ -14,6 +14,7 @@ if [ ! -z "$1" ]; then
   echo 'package managers:'
   echo " - distrib:   ${blue}✓${gray}"
   echo " - asdf:      ${cyan}✓${gray}"
+  echo " - cargo:     ${green}✓${gray}"
   echo " - scoop:     ${purple}✓${gray}"
   echo " - not found: ${red}✘${gray}"
 fi
@@ -21,12 +22,13 @@ fi
 local cmds=(
   '7z'
   'bat'
-  'bc'
+  'cargo'
   'chezmoi'
   'code'
   'delta'
   'difft'
   'direnv'
+  'dust'
   'eza'
   'fd'
   'fzf'
@@ -34,27 +36,29 @@ local cmds=(
   'go'
   'helm'
   'helmfile'
-  'jq'
+  'jaq'
   'kops'
   'kubectl'
   'kubectx'
   'meld'
   'node'
+  'paper'
   'python'
   'rg'
-  'rustc'
   'starship'
   'terraform'
+  'tldr'
   'vivid'
   'yazi'
   'zoxide'
 )
 
 for cmd in "${cmds[@]}"; do
-  local result=$(type -a $cmd | grep -oE 'bin|asdf|scoop')
+  local result=$(type -a $cmd | grep -oE 'bin|asdf|scoop|cargo')
   case $result in
     *bin*) echo "${blue}✓${gray} $cmd";;
     *asdf*) echo "${cyan}✓${gray} $cmd";;
+    *cargo*) echo "${green}✓${gray} $cmd";;
     *scoop*) echo "${purple}✓${gray} $cmd";;
     *) echo "${red}✘${gray} $cmd";;
   esac

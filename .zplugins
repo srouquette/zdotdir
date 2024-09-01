@@ -50,7 +50,6 @@ wfxr/forgit kind:defer
 $ZSH_CUSTOM/plugins/lesspipe
 victoria-riley-barnett/Communism
 fdellwing/zsh-bat
-arzzen/calc.plugin.zsh
 romkatv/zsh-no-ps2
 
 ## * ------------------------------ FISH-LIKE ----------------------------- * ##
