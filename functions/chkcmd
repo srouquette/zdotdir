@@ -54,12 +54,12 @@ local cmds=(
 )
 
 for cmd in "${cmds[@]}"; do
-  local result=$(type -a $cmd | grep -oE 'bin|asdf|scoop|cargo')
+  local result=$(type -a $cmd | grep -oE 'asdf|scoop|cargo|bin')
   case $result in
-    *bin*) echo "${blue}✓${gray} $cmd";;
     *asdf*) echo "${cyan}✓${gray} $cmd";;
     *cargo*) echo "${green}✓${gray} $cmd";;
     *scoop*) echo "${purple}✓${gray} $cmd";;
+    *bin*) echo "${blue}✓${gray} $cmd";;
     *) echo "${red}✘${gray} $cmd";;
   esac
 done
