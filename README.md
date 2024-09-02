@@ -11,7 +11,7 @@ Install this repo to your `$ZDOTDIR`:
 export ZDOTDIR=~/.config/zsh
 
 # clone this repo
-git clone --recursive git@github.com:srouquette/zdotdir.git $ZDOTDIR
+git clone --recursive https://github.com/srouquette/dotfiles.git $ZDOTDIR
 
 # change the root .zshenv file to use ZDOTDIR
 cat << 'EOF' >| ~/.zshenv
