@@ -4,6 +4,7 @@
 #
 
 (( $+commands[asdf] )) || return 1
+[ -z "$MSYSTEM" ] || return 1  # doesn't work on msys2
 
 ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
 
