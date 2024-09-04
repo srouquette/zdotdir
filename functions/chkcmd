@@ -33,6 +33,7 @@ local cmds=(
   'fd'
   'fzf'
   'git'
+  'glow'
   'go'
   'helm'
   'helmfile'

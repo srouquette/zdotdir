@@ -5,8 +5,4 @@
 
 (( $+commands[zoxide] )) || return 1
 
-if zstyle -t ':zephyr:plugin:directory' 'use-cache'; then
-  cached-eval 'zoxide-init-zsh' zoxide init zsh
-else
-  eval "$(zoxide init zsh)"
-fi
+cached-eval 'zoxide-init-zsh' zoxide init zsh

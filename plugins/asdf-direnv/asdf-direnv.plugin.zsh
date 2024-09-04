@@ -20,8 +20,4 @@ if test ! "$(asdf list direnv 2>/dev/null | wc -l)" -gt 0; then
 fi
 
 # install hook
-if zstyle -t ':zephyr:plugin:asdf-direnv' 'use-cache'; then
-  cached-eval 'asdf-direnv-hook' asdf exec direnv hook zsh
-else
-  eval "$(asdf exec direnv hook zsh)"
-fi
+cached-eval 'asdf-direnv-hook' asdf exec direnv hook zsh
