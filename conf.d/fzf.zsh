@@ -27,7 +27,7 @@ export FZF_CTRL_R_OPTS="
 
 # use .lessfilter instead of less to avoid paging, which cut the content randomly
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_CTRL_T_OPTS="--preview '~/.lessfilter {}'"
+export FZF_CTRL_T_OPTS="--height=70% --preview '~/.lessfilter {}'"
 
 export FZF_ALT_C_COMMAND="fd --type dir $FD_COMMON_OPTS"
 export FZF_ALT_C_OPTS="--preview '$EZA_TREE_COMMAND {}'"
