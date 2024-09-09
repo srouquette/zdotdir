@@ -29,6 +29,7 @@ ohmyzsh/ohmyzsh path:plugins/alias-finder
 ohmyzsh/ohmyzsh path:plugins/common-aliases   # keep ?
 ohmyzsh/ohmyzsh path:plugins/docker-compose   # keep ?
 ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/gcloud
 ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/ssh
 
