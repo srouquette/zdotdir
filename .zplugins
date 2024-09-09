@@ -26,6 +26,8 @@ mattmc3/zephyr path:plugins/prompt
 
 ## * --------------------------------- OMZ -------------------------------- * ##
 ohmyzsh/ohmyzsh path:plugins/alias-finder
+ohmyzsh/ohmyzsh path:plugins/archlinux
+ohmyzsh/ohmyzsh path:plugins/aws
 ohmyzsh/ohmyzsh path:plugins/common-aliases   # keep ?
 ohmyzsh/ohmyzsh path:plugins/docker-compose   # keep ?
 ohmyzsh/ohmyzsh path:plugins/extract
