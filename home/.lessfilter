@@ -22,8 +22,6 @@ category=${mime%%/*}
 kind=${mime##*/}
 ext=${1##*.}
 
-echo $ext
-
 if [ -d "$1" ]; then
 	if has_cmd eza; then
 		eza -lh --group-directories-first --color=always --color-scale all --git --icons --hyperlink --octal-permissions "$1"
@@ -43,11 +41,19 @@ elif [ "$kind" = javascript ]; then
   render_text -ljs "$1"
 
 elif [ "$category" = image ]; then
-	if has_cmd viu; then
-		[ -n "$FZF_PREVIEW_COLUMNS" ] && viu "$1" --width $FZF_PREVIEW_COLUMNS || viu "$1"
-	elif has_cmd chafa; then
-		chafa -f symbols "$1"
-	fi
+  if [ -n "$FZF_PREVIEW_COLUMNS" ]; then
+    if has_cmd chafa; then
+      chafa -f symbols "$1" --view-size=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_ROWS}
+    elif has_cmd viu; then
+      viu "$1" --width "$FZF_PREVIEW_COLUMNS"
+    fi
+  else
+    if has_cmd chafa; then
+      chafa -f symbols "$1"
+    elif has_cmd viu; then
+      viu "$1"
+    fi
+  fi
 	if has_cmd exiftool; then
 		exiftool "$1" | render_text -plyaml
 	fi
