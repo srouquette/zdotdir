@@ -54,6 +54,7 @@ $ZSH_CUSTOM/plugins/lesspipe
 victoria-riley-barnett/Communism
 fdellwing/zsh-bat
 romkatv/zsh-no-ps2
+z-shell/zsh-eza kind:defer
 
 ## * ------------------------------ FISH-LIKE ----------------------------- * ##
 mattmc3/zephyr path:plugins/zfunctions

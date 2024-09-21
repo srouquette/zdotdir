@@ -11,7 +11,6 @@
 
 # single character shortcuts - be sparing!
 alias _=sudo
-alias l=ls
 alias g=git
 
 # mask built-ins with better defaults
@@ -28,7 +27,8 @@ fi
 
 # more ways to ls
 if (( $+commands[eza] )); then
-  alias ls='eza -h --group-directories-first --color=always --color-scale all --git --icons --hyperlink --octal-permissions'
+  # z-shell/zsh-eza
+  # alias ls='eza -h --group-directories-first --color=always --color-scale all --git --icons --hyperlink --octal-permissions'
 
   alias lS='la --sort=size'
   alias lX='la --sort=extension'
@@ -36,12 +36,11 @@ if (( $+commands[eza] )); then
   alias lA='la --sort=accessed'
   alias lC='la --sort=created'
   alias llm='lM'
-
-  alias lt='ls --tree'
-  alias tree=lt
 else
+  alias l=ls
   alias ls='ls -h --group-directories-first --color=always'
-
+  alias ll='ls -l'
+  alias la='ls -lA'
   alias lS='la --sort=size'
   alias lX='la --sort=extension'
   alias lM='la --sort=time'
@@ -49,8 +48,6 @@ else
   alias lC='lM'
   alias llm='lM'
 fi
-alias ll='ls -l'
-alias la='ls -lA'
 alias lsa='ls -GA'
 alias lD='ll -DA'
 alias lc='ll -1'
