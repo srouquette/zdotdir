@@ -52,6 +52,7 @@ wfxr/forgit kind:defer
 
 ## * ------------------------------ UTILITIES ----------------------------- * ##
 $ZSH_CUSTOM/plugins/lesspipe
+$ZSH_CUSTOM/plugins/nanorc
 victoria-riley-barnett/Communism
 fdellwing/zsh-bat
 romkatv/zsh-no-ps2
