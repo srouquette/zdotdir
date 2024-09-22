@@ -6,6 +6,7 @@
 mattmc3/zephyr path:plugins/environment
 $ZSH_CUSTOM/plugins/starship-ftl
 $ZSH_CUSTOM/plugins/xdg
+$ZSH_CUSTOM/plugins/gem
 
 ## * ----------------------------- COMPLETIONS ---------------------------- * ##
 mattmc3/ez-compinit
