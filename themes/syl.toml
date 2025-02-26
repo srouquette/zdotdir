@@ -82,6 +82,7 @@ style = "bg:bg_os fg_os"
 
 [os.symbols]
 Arch = "󰣇"
+CachyOS = ""
 Debian = ""
 Ubuntu = ""
 Windows = ""
