@@ -6,7 +6,7 @@ function update_completions {
 
   echo "Getting git completions..."
   curl -fsSL -o $destdir/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-  curl -fsSL -o $destdir/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+  curl -fsSL -o $destdir/_git https://raw.githubusercontent.com/felipec/git-completion/master/src/_git
 
   echo "Generating starship completions..."
   local _starship=$destdir/_starship

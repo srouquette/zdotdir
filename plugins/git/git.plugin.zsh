@@ -12,7 +12,7 @@ function update_git_completions {
   fi
   # Download the git scripts
   local bsh_url=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-  local zsh_url=https://raw.githubusercontent.com/felipec/git-completion/master/git-completion.zsh
+  local zsh_url=https://raw.githubusercontent.com/felipec/git-completion/master/src/_git
   local dest=${1:-$ZSH_COMPLETIONS_DIR}
   curl -fsSL $bsh_url -o $dest/git-completion.bash
   curl -fsSL $zsh_url -o $dest/_git

@@ -79,5 +79,7 @@ prompt "$ZSH_THEME[@]"
 [[ "$ZPROFRC" -eq 1 ]] && zprof
 [[ -v ZPROFRC ]] && unset ZPROFRC
 
+fastfetch
+
 # Always return success
 true
